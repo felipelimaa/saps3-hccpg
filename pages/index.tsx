@@ -10,7 +10,10 @@ import {
   Col,
   Card,
   Statistic,
-  Descriptions
+  Descriptions,
+  Button,
+  Steps,
+  message
 } from 'antd';
 import { CaretRightOutlined, ArrowUpOutlined } from '@ant-design/icons';
 
@@ -26,9 +29,57 @@ import variaveis from './api/variaveis.json';
 
 const { Content } = Layout;
 const { Panel } = Collapse;
+const { Step } = Steps;
+
+const steps = [
+  {
+    title: 'Dados da Internação',
+    json: dadosInternacao
+  },
+  {
+    title: 'Comorbidades',
+    json: comorbidades
+  },
+  {
+    title: 'Motivo da admissão',
+    json: motivoAdmissao
+  },
+  {
+    title: 'Variáveis',
+    json: variaveis
+  },
+  {
+    title: 'Resultado',
+    json: []
+  }
+]
 
 const Home = () => {
+  const [current, setCurrent] = useState(0);
   const [form] = Form.useForm();
+
+  const next = () => {
+    setCurrent(current + 1);
+  }
+
+  const prev = () => {
+    setCurrent(current - 1);
+  }
+
+  const formDadosInternacao = {
+    idade: 0,
+    diasInternacoesPrevios: 0,
+    procedencia: 0
+  }
+
+  const onFinishInternacao = (values : any) => {
+    formDadosInternacao.idade = values.idade
+    formDadosInternacao.diasInternacoesPrevios = values.diasInternacoesPrevios
+    formDadosInternacao.procedencia = values.procedencia
+
+    console.log(formDadosInternacao)
+  }
+
 
   return (
     <>
@@ -52,117 +103,73 @@ const Home = () => {
               style={{
                 padding: 24,
                 margin: 0,
-                minHeight: 280,
               }}
             >
-              <Collapse
-                defaultActiveKey={['1']}
-                expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
+              <Steps current={current}>
+                {steps.map(itemStep => (
+                  <Step key={itemStep.title} title={itemStep.title} />
+                ))}
+              </Steps>
+              <Form
+                form={form}
               >
-                <Panel header="Dados da Internação" key="1">
-                  <Form
-                    form={form}
-                  >
-                    <Descriptions bordered>
-                      {dadosInternacao.map((item) =>
-                        <Descriptions.Item label={item.formLabel} key={item.key} span={3}>
-                          <Form.Item key={item.key} name={item.formName}>  
-                            <Radio.Group buttonStyle="solid">
-                              {item.respostas.map((resposta) =>
-                                <Radio.Button 
-                                  key={resposta.key}
-                                  value={resposta.value}
-                                >
-                                  {resposta.label}
-                                </Radio.Button>  
-                              )}
-                            </Radio.Group>
-                          </Form.Item>
-                        </Descriptions.Item>
-                      )}
-                    </Descriptions>
-                    
-                    
-                  </Form>
-                </Panel>
-                
-                <Panel header="Comorbidades" key="2">
-                  <Form
-                    form={form}
-                  >
-                    <Descriptions bordered>
-                      {comorbidades.map((item) =>
-                        <Descriptions.Item label={item.formLabel} key={item.key} span={3}>
-                          <Form.Item key={item.key} name={item.formName}>  
-                            <Radio.Group buttonStyle="solid">
-                              {item.respostas.map((resposta) =>
-                                <Radio.Button 
-                                  key={resposta.key}
-                                  value={resposta.value}
-                                >
-                                  {resposta.label}
-                                </Radio.Button>  
-                              )}
-                            </Radio.Group>
-                          </Form.Item>
-                        </Descriptions.Item>
-                      )}
-                    </Descriptions>
-                  </Form>
-                </Panel>
-                <Panel header="Motivo da admissão" key="3">
-                  <Form
-                    form={form}
-                  >
-                    <Descriptions bordered>
-                      {motivoAdmissao.map((item) =>
-                        <Descriptions.Item label={item.formLabel} key={item.key} span={3}>
-                          <Form.Item key={item.key} name={item.formName}>  
-                            <Radio.Group buttonStyle="solid">
-                              {item.respostas.map((resposta) =>
-                                <Radio.Button 
-                                  key={resposta.key}
-                                  value={resposta.value}
-                                >
-                                  {resposta.label}
-                                </Radio.Button>  
-                              )}
-                            </Radio.Group>
-                          </Form.Item>
-                        </Descriptions.Item>
-                      )}
-                    </Descriptions>
-                  </Form>
-                </Panel>
-                <Panel header="Variáveis" key="4">
-                <Form
-                    form={form}
-                  >
-                    <Descriptions bordered>
-                      {variaveis.map((item) =>
-                        <Descriptions.Item label={item.formLabel} key={item.key} span={3}>
-                          <Form.Item key={item.key} name={item.formName}>  
-                            <Radio.Group buttonStyle="solid">
-                              {item.respostas.map((resposta) =>
-                                <Radio.Button 
-                                  key={resposta.key}
-                                  value={resposta.value}
-                                >
-                                  {resposta.label}
-                                </Radio.Button>  
-                              )}
-                            </Radio.Group>
-                          </Form.Item>
-                        </Descriptions.Item>
-                      )}
-                    </Descriptions>
-                  </Form>
-                </Panel>
-              </Collapse>
+                <div className={styles.stepsContent}>
+                  
+                    {steps[current].json.map((item) =>
+                      <Form.Item key={item.key} label={`${item.formLabel}:`} name={item.formName}>  
+                        <Radio.Group buttonStyle="solid" name={item.formName}>
+                          {item.respostas.map((resposta) =>
+                            <Radio.Button 
+                              key={resposta.key}
+                              value={resposta.value}
+                            >
+                              {resposta.label}
+                            </Radio.Button>  
+                          )}
+                        </Radio.Group>
+                      </Form.Item>
+                    )}
+                </div>
+              </Form>
+              <div className={styles.stepsAction}>
+                {current < steps.length - 2 && (
+                  <Button type="primary" onClick={() => next()}>
+                    Avançar
+                  </Button>
+                )}
+                {current === steps.length - 2 && (
+                  <Button type="primary" onClick={() => {
+                      message.success('SAPS 3 finalizado!')
+                      next()
+                    }}>
+                    Finalizar
+                  </Button>
+                )}
+                {current > 0 && (
+                  <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
+                    Voltar
+                  </Button>
+                )}
+              </div>
             </Content>
           </Layout>
 
-          
+          <Layout style={{ padding: '24px 0' }}>
+            <Row gutter={16}>
+              <Col span={12}>
+                <Card>
+                  <Statistic
+                    title="Active"
+                    value={11.28}
+                    precision={2}
+                    valueStyle={{ color: '#3f8600' }}
+                    prefix={<ArrowUpOutlined />}
+                    suffix="%"
+                  />
+                </Card>
+              </Col>
+            </Row>
+          </Layout>
         </Content>
 
         <FooterComponent />

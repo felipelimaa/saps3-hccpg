@@ -6,3 +6,15 @@
 .layout {
   background-color: #f0f2f5;
 }
+
+.stepsContent {
+  min-height: 200px;
+  margin-top: 40px;
+  padding: 50px 30px;
+  border: 1px dashed #e9e9e9;
+  border-radius: 2px;
+}
+
+.stepsAction {
+  margin-top: 24px;
+}
