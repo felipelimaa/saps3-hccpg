@@ -5,10 +5,14 @@ import {
   Breadcrumb, 
   Collapse, 
   Form, 
-  Input, 
-  Radio 
+  Radio,
+  Row,
+  Col,
+  Card,
+  Statistic,
+  Descriptions
 } from 'antd';
-import { CaretRightOutlined } from '@ant-design/icons';
+import { CaretRightOutlined, ArrowUpOutlined } from '@ant-design/icons';
 
 import styles from './styles/index.module.css';
 
@@ -59,20 +63,26 @@ const Home = () => {
                   <Form
                     form={form}
                   >
-                    {dadosInternacao.map((item) =>
-                      <Form.Item key={item.key} label={item.formLabel} name={item.formName}>  
-                        <Radio.Group buttonStyle="solid">
-                          {item.respostas.map((resposta) =>
-                            <Radio.Button 
-                              key={resposta.key}
-                              value={resposta.value}
-                            >
-                              {resposta.label}
-                            </Radio.Button>  
-                          )}
-                        </Radio.Group>
-                      </Form.Item>
-                    )}
+                    <Descriptions bordered>
+                      {dadosInternacao.map((item) =>
+                        <Descriptions.Item label={item.formLabel} key={item.key} span={3}>
+                          <Form.Item key={item.key} name={item.formName}>  
+                            <Radio.Group buttonStyle="solid">
+                              {item.respostas.map((resposta) =>
+                                <Radio.Button 
+                                  key={resposta.key}
+                                  value={resposta.value}
+                                >
+                                  {resposta.label}
+                                </Radio.Button>  
+                              )}
+                            </Radio.Group>
+                          </Form.Item>
+                        </Descriptions.Item>
+                      )}
+                    </Descriptions>
+                    
+                    
                   </Form>
                 </Panel>
                 
@@ -80,68 +90,80 @@ const Home = () => {
                   <Form
                     form={form}
                   >
-                    {comorbidades.map((item) =>
-                      <Form.Item key={item.key} label={item.formLabel} name={item.formName}>  
-                        <Radio.Group buttonStyle="solid">
-                          {item.respostas.map((resposta) =>
-                            <Radio.Button 
-                              key={resposta.key}
-                              value={resposta.value}
-                            >
-                              {resposta.label}
-                            </Radio.Button>  
-                          )}
-                        </Radio.Group>
-                      </Form.Item>
-                    )}
+                    <Descriptions bordered>
+                      {comorbidades.map((item) =>
+                        <Descriptions.Item label={item.formLabel} key={item.key} span={3}>
+                          <Form.Item key={item.key} name={item.formName}>  
+                            <Radio.Group buttonStyle="solid">
+                              {item.respostas.map((resposta) =>
+                                <Radio.Button 
+                                  key={resposta.key}
+                                  value={resposta.value}
+                                >
+                                  {resposta.label}
+                                </Radio.Button>  
+                              )}
+                            </Radio.Group>
+                          </Form.Item>
+                        </Descriptions.Item>
+                      )}
+                    </Descriptions>
                   </Form>
                 </Panel>
                 <Panel header="Motivo da admissão" key="3">
                   <Form
                     form={form}
                   >
-                    {motivoAdmissao.map((item) =>
-                      <Form.Item key={item.key} label={item.formLabel} name={item.formName}>  
-                        <Radio.Group buttonStyle="solid">
-                          {item.respostas.map((resposta) =>
-                            <Radio.Button 
-                              key={resposta.key}
-                              value={resposta.value}
-                            >
-                              {resposta.label}
-                            </Radio.Button>  
-                          )}
-                        </Radio.Group>
-                      </Form.Item>
-                    )}
+                    <Descriptions bordered>
+                      {motivoAdmissao.map((item) =>
+                        <Descriptions.Item label={item.formLabel} key={item.key} span={3}>
+                          <Form.Item key={item.key} name={item.formName}>  
+                            <Radio.Group buttonStyle="solid">
+                              {item.respostas.map((resposta) =>
+                                <Radio.Button 
+                                  key={resposta.key}
+                                  value={resposta.value}
+                                >
+                                  {resposta.label}
+                                </Radio.Button>  
+                              )}
+                            </Radio.Group>
+                          </Form.Item>
+                        </Descriptions.Item>
+                      )}
+                    </Descriptions>
                   </Form>
                 </Panel>
                 <Panel header="Variáveis" key="4">
                 <Form
                     form={form}
                   >
-                    {variaveis.map((item) =>
-                      <Form.Item key={item.key} label={item.formLabel} name={item.formName}>  
-                        <Radio.Group buttonStyle="solid">
-                          {item.respostas.map((resposta) =>
-                            <Radio.Button 
-                              key={resposta.key}
-                              value={resposta.value}
-                            >
-                              {resposta.label}
-                            </Radio.Button>  
-                          )}
-                        </Radio.Group>
-                      </Form.Item>
-                    )}
+                    <Descriptions bordered>
+                      {variaveis.map((item) =>
+                        <Descriptions.Item label={item.formLabel} key={item.key} span={3}>
+                          <Form.Item key={item.key} name={item.formName}>  
+                            <Radio.Group buttonStyle="solid">
+                              {item.respostas.map((resposta) =>
+                                <Radio.Button 
+                                  key={resposta.key}
+                                  value={resposta.value}
+                                >
+                                  {resposta.label}
+                                </Radio.Button>  
+                              )}
+                            </Radio.Group>
+                          </Form.Item>
+                        </Descriptions.Item>
+                      )}
+                    </Descriptions>
                   </Form>
                 </Panel>
               </Collapse>
             </Content>
           </Layout>
+
+          
         </Content>
-
-
 
         <FooterComponent />
       </Layout>
