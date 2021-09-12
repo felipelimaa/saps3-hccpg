@@ -1,0 +1,138 @@
+[
+  {
+    "key": 1,
+    "formLabel": "Tratamento Oncológico",
+    "formName": "tratOncologico",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Sim",
+        "value": 3
+      },
+      {
+        "key": 2,
+        "label": "Não",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "key": 2,
+    "formLabel": "Cancer",
+    "formName": "cancer",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Sim",
+        "value": 11
+      },
+      {
+        "key": 2,
+        "label": "Não",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "key": 3,
+    "formLabel": "Cancer Hematológico",
+    "formName": "cancerHematologico",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Sim",
+        "value": 6
+      },
+      {
+        "key": 2,
+        "label": "Não",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "key": 4,
+    "formLabel": "Insuficiência Cardíaca",
+    "formName": "insuficienciaCardiaca",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Sim",
+        "value": 6
+      },
+      {
+        "key": 2,
+        "label": "Não",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "key": 5,
+    "formLabel": "Cirrose",
+    "formName": "cirrose",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Sim",
+        "value": 8
+      },
+      {
+        "key": 2,
+        "label": "Não",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "key": 6,
+    "formLabel": "SIDA/HIV",
+    "formName": "sidaHIV",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Sim",
+        "value": 8
+      },
+      {
+        "key": 2,
+        "label": "Não",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "key": 7,
+    "formLabel": "Fármacos Vasoativas",
+    "formName": "drogasVasoativasPrevias",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Sim",
+        "value": 3
+      },
+      {
+        "key": 2,
+        "label": "Não",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "key": 8,
+    "formLabel": "Admissão na UTI",
+    "formName": "admissaoUTI",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Programada",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "Não programada",
+        "value": 3
+      }
+    ]
+  }
+]

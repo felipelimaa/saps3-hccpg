@@ -1,0 +1,88 @@
+[
+  {
+    "key": 1,
+    "formLabel": "Idade",
+    "formName": "idade",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "< 40 anos",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "40 - 59 anos",
+        "value": 5
+      },
+      {
+        "key": 3,
+        "label": "60 - 69 anos",
+        "value": 9
+      },
+      {
+        "key": 4,
+        "label": "70 - 74 anos",
+        "value": 13
+      },
+      {
+        "key": 5,
+        "label": "75 - 79 anos",
+        "value": 15
+      },
+      {
+        "key": 6,
+        "label": "> 80 anos",
+        "value": 18
+      }
+    ]
+  },
+  {
+    "key": 2,
+    "formLabel": "Dias de internação prévios",
+    "formName": "diasInternacoesPrevios",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "< 14 dias",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "14 - 27 dias",
+        "value": 6
+      },
+      {
+        "key": 3,
+        "label": ">= 28 dias",
+        "value": 7
+      }
+    ]
+  },
+  {
+    "key": 3,
+    "formLabel": "Procedência",
+    "formName": "procedencia",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Eletivo",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "Pronto Atendimento",
+        "value": 5
+      },
+      {
+        "key": 3,
+        "label": "Outra UTI",
+        "value": 7
+      },
+      {
+        "key": 4,
+        "label": "Outras",
+        "value": 8
+      }
+    ]
+  }
+]

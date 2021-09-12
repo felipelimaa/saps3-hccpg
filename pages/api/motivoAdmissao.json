@@ -1,0 +1,193 @@
+[
+  {
+    "key": 1,
+    "formLabel": "Cardiovascular",
+    "formName": "cardiovascular",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Arritmias",
+        "value": -5
+      },
+      {
+        "key": 2,
+        "label": "Outras",
+        "value": 0
+      },
+      {
+        "key": 3,
+        "label": "Choque hipovolêmico",
+        "value": 3
+      },
+      {
+        "key": 4,
+        "label": "Choque séptico",
+        "value": 5
+      },
+      {
+        "key": 5,
+        "label": "Choque anafilático",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "key": 2,
+    "formLabel": "Hepatopatia",
+    "formName": "hepatopatia",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Outras hepatopatias",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "Insuficiência hepática",
+        "value": 6
+      }
+    ]
+  },
+  {
+    "key": 3,
+    "formLabel": "Digestivo",
+    "formName": "digestivo",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Outras",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "Abdomen agudo",
+        "value": 3
+      },
+      {
+        "key": 3,
+        "label": "Pancreatites",
+        "value": 9
+      }
+    ]
+  },
+  {
+    "key": 4,
+    "formLabel": "Neurológico",
+    "formName": "neurologico",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Convulsões",
+        "value": -4
+      },
+      {
+        "key": 2,
+        "label": "Outras",
+        "value": 0
+      },
+      {
+        "key": 3,
+        "label": "Coma, delírios, agitação",
+        "value": 4
+      },
+      {
+        "key": 4,
+        "label": "Déficit focal",
+        "value": 7
+      },
+      {
+        "key": 5,
+        "label": "Efeito de massa intracraniana",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "key": 5,
+    "formLabel": "Cirurgia na Admissão",
+    "formName": "cirurgiaNaAdmissao",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Eletivo",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "Não cirúrgico",
+        "value": 5
+      },
+      {
+        "key": 3,
+        "label": "Emergência",
+        "value": 6
+      }
+    ]
+  },
+  {
+    "key": 6,
+    "formLabel": "Tipo de Operação",
+    "formName": "tipoDeOperacao",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Transplante",
+        "value": -11
+      },
+      {
+        "key": 2,
+        "label": "Trauma/politrauma",
+        "value": -8
+      },
+      {
+        "key": 3,
+        "label": "Cirúrgia cardíaca",
+        "value": -6
+      },
+      {
+        "key": 4,
+        "label": "Neurocirurgia/AVC",
+        "value": 5
+      },
+      {
+        "key": 5,
+        "label": "Outras cirúrgias",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "key": 7,
+    "formLabel": "Infecção Nosocomial",
+    "formName": "infeccaoNosocomial",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Sim",
+        "value": 4
+      },
+      {
+        "key": 2,
+        "label": "Não",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "key": 8,
+    "formLabel": "Infecção Respiratória",
+    "formName": "infeccaoRespiratoria",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Sim",
+        "value": 5
+      },
+      {
+        "key": 2,
+        "label": "Não",
+        "value": 0
+      }
+    ]
+  }
+]

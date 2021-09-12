@@ -1,0 +1,237 @@
+[
+  {
+    "key": 1,
+    "formLabel": "Glasgow",
+    "formName": "glasgow",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "GCS >= 13",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "GCS 7 - 12",
+        "value": 2
+      },
+      {
+        "key": 3,
+        "label": "GCS 6",
+        "value": 7
+      },
+      {
+        "key": 4,
+        "label": "GCS 5",
+        "value": 10
+      },
+      {
+        "key": 5,
+        "label": "GCS 3 - 4",
+        "value": 15
+      }
+    ]
+  },
+  {
+    "key": 2,
+    "formLabel": "Pressão arterial sistólica",
+    "formName": "pressaoArterialSistolica",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "TAS >= 120mmHg",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "TAS 70 - 119mmHg",
+        "value": 3
+      },
+      {
+        "key": 3,
+        "label": "TAS 40 - 69mmHg",
+        "value": 8
+      },
+      {
+        "key": 4,
+        "label": "TAS < 40mmHg",
+        "value": 11
+      }
+    ]
+  },
+  {
+    "key": 3,
+    "formLabel": "Frequência cardíaca",
+    "formName": "frequenciaCardiaca",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "FC >= 160",
+        "value": 7
+      },
+      {
+        "key": 2,
+        "label": "FC 120 - 159",
+        "value": 5
+      },
+      {
+        "key": 3,
+        "label": "FC < 120",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "key": 4,
+    "formLabel": "Temperatura",
+    "formName": "temperatura",
+    "respostas": [
+      {
+        "key": 1,
+        "label": ">= 35°C",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "< 35°C",
+        "value": 7
+      }
+    ]
+  },
+  {
+    "key": 5,
+    "formLabel": "Oxigenação",
+    "formName": "oxigenação",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "VM relação PaO²/FIO² < 100",
+        "value": 11
+      },
+      {
+        "key": 2,
+        "label": "VM relação >= 100",
+        "value": 7
+      },
+      {
+        "key": 3,
+        "label": "Sem VM PaO² < 60",
+        "value": 5
+      },
+      {
+        "key": 4,
+        "label": "Sem VM PaO² >= 60",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "key": 6,
+    "formLabel": "Bilirrubina",
+    "formName": "bilirrubina",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Br < 2 mg/dl",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "Br 2 - 5,9 mg/dl",
+        "value": 4
+      },
+      {
+        "key": 3,
+        "label": "Br >= 6 mg/dl",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "key": 7,
+    "formLabel": "Creatinina",
+    "formName": "creatinina",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Cr < 1,2",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "Cr 1,2 - 2",
+        "value": 2
+      },
+      {
+        "key": 3,
+        "label": "Cr 2 - 3,5",
+        "value": 7
+      },
+      {
+        "key": 4,
+        "label": "Cr >= 3,5",
+        "value": 8
+      }
+    ]
+  },
+  {
+    "key": 8,
+    "formLabel": "Leucócitos",
+    "formName": "leucocitos",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Leucos < 15.000 / mm3",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "Leucos >= 15.000 / mm3",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "key": 9,
+    "formLabel": "pH",
+    "formName": "ph",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "pH > 7.25",
+        "value": 0
+      },
+      {
+        "key": 2,
+        "label": "pH <= 7.25",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "key": 10,
+    "formLabel": "Plaquetas",
+    "formName": "plaquetas",
+    "respostas": [
+      {
+        "key": 1,
+        "label": "Plaq. < 20.000",
+        "value": 13
+      },
+      {
+        "key": 2,
+        "label": "Plaq. 20.000 - 50.000",
+        "value": 8
+      },
+      {
+        "key": 3,
+        "label": "Plaq. 50.000 - 100.000",
+        "value": 5
+      },
+      {
+        "key": 4,
+        "label": "Plaq. > 100.000",
+        "value": 0
+      }
+    ]
+  }
+]
