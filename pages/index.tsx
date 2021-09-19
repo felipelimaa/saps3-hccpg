@@ -13,6 +13,7 @@ import {
   Steps,
   message
 } from 'antd';
+
 import { ArrowUpOutlined } from '@ant-design/icons';
 
 import styles from './styles/index.module.css';
@@ -56,42 +57,14 @@ const layoutForm = {
   wrapperCol: { span: 16 },
 };
 
-const fieldsForm = {
-  idade: 0,
-  diasInternacoesPrevios: 0,
-  procedencia: 0,
-  tratOncologico: 0,
-  cancer: 0,
-  cancerHematologico: 0,
-  insuficienciaCardiaca: 0,
-  cirrose: 0,
-  sidaHIV: 0,
-  drogasVasoativasPrevias: 0,
-  admissaoUTI: 0,
-  cardiovascular: 0,
-  hepatopatia: 0,
-  digestivo: 0,
-  neurologico: 0,
-  cirurgiaNaAdmissao: 0,
-  tipoDeOperacao: 0,
-  infeccaoNosocomial: 0,
-  infeccaoRespiratoria: 0,
-  glasgow: 0,
-  pressaoArterialSistolica: 0,
-  frequenciaCardiaca: 0,
-  temperatura: 0,
-  oxigenacao: 0,
-  bilirrubina: 0,
-  creatinina: 0,
-  leucocitos: 0,
-  ph: 0,
-  plaquetas: 0
-}
 
 const Home = () => {
+  let soma = 0;
+    
   const [current, setCurrent] = useState(0);
-  const [formSaps, setFormSaps] = useState(fieldsForm);
   const [form] = Form.useForm();
+  const [resultValue, setResultValue] = useState(0);
+  const [percentValue, setPercentValue] = useState(0.0);
 
   const next = () => {
     setCurrent(current + 1);
@@ -101,29 +74,32 @@ const Home = () => {
     setCurrent(current - 1);
   }
 
-  const onFinish = (values : any) => {
-    //console.log(values)
-  }
-
   const onFormSaps = (event : any) => {
-    const { idade, diasInternacoesPrevios, procedencia } = event
-    //console.log(idade)
-    setFormSaps({
-      ...formSaps, 
-      ['idade']: idade == 'undefined' ? 0 : idade, 
-      ['diasInternacoesPrevios']: diasInternacoesPrevios, 
-      ['procedencia']: procedencia
-    })
-    console.log(formSaps)
+    console.log(event)
+    soma = 16
+    for (event of Object.values(event)) {
+      soma += parseInt(event);
+    }
+    setResultValue(soma)
+    handlePercentScore()
   }
 
-  const onChange = (event : any) => {
-    //const {name, value} = event.target
-    //setFormSaps({...formSaps, [name]: value})
-    //const values = form.getFieldsValue()
-    //console.log(values)
-  }
+  const handlePercentScore = () => {
+    /*
+      MortAS=Score;
+      MortAS=-64.599+((Math.log(MortAS+71.0599))*13.2322);
+      MortAS=Math.exp(MortAS )  / (1 + Math.exp(MortAS))
+      MortAS = Fmt(100 * MortAS ) +"%"
 
+    */
+    console.log(resultValue)
+    let percent = resultValue
+    percent =- 64.599+((Math.log(resultValue+71.0599))*13.2322)
+    percent = Math.exp(percent) / (1 + Math.exp(percent))
+    percent = 100 * percent
+    setPercentValue(percent)
+
+  }
 
   return (
     <>
@@ -154,9 +130,9 @@ const Home = () => {
                   <Step key={itemStep.title} title={itemStep.title} />
                 ))}
               </Steps>
+              
               <Form
                 form={form}
-                onFinish={onFinish}
                 name="formSaps3"
                 {...layoutForm}
               >
@@ -169,7 +145,6 @@ const Home = () => {
                             <Radio.Group 
                               buttonStyle="solid" 
                               name={item.formName}
-                              onChange={onChange}
                             >
                               {item.respostas.map((resposta) =>
                                 <Radio.Button 
@@ -191,11 +166,16 @@ const Home = () => {
                           <Col span={24}>
                             <Card>
                               <Statistic
-                                title="Active"
-                                value={11.28}
+                                title="SAPS 3 Score"
+                                value={resultValue}
+                                precision={0}
+                                valueStyle={{ color: '#3f8600' }}
+                              />
+                              <Statistic
+                                title="Taxa de Mortalidade"
+                                value={percentValue}
                                 precision={2}
                                 valueStyle={{ color: '#3f8600' }}
-                                prefix={<ArrowUpOutlined />}
                                 suffix="%"
                               />
                             </Card>
@@ -209,7 +189,6 @@ const Home = () => {
                       {current < steps.length - 2 && (
                         <Button type="primary" onClick={() => {
                           next()
-                          onFormSaps(form.getFieldsValue())
                         }}>
                           Avançar
                         </Button>
@@ -218,7 +197,7 @@ const Home = () => {
                         <Button type="primary" htmlType="submit" onClick={() => {
                             message.success('SAPS 3 finalizado!')
                             next()
-                            onFormSaps(form.getFieldsValue())
+                            onFormSaps(form.getFieldsValue(true))
                           }}>
                           Finalizar
                         </Button>
