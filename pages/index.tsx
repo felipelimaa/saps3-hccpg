@@ -14,7 +14,7 @@ import {
   message
 } from 'antd';
 
-import { ArrowUpOutlined } from '@ant-design/icons';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 import styles from './styles/index.module.css';
 
@@ -74,31 +74,34 @@ const Home = () => {
     setCurrent(current - 1);
   }
 
+  const restart = () => {
+    setCurrent(0)
+    setResultValue(0)
+    setPercentValue(0)
+    form.resetFields()
+  }
+  
+  
   const onFormSaps = (event : any) => {
-    console.log(event)
     soma = 16
     for (event of Object.values(event)) {
       soma += parseInt(event);
     }
-    setResultValue(soma)
-    handlePercentScore()
-  }
 
-  const handlePercentScore = () => {
     /*
       MortAS=Score;
       MortAS=-64.599+((Math.log(MortAS+71.0599))*13.2322);
       MortAS=Math.exp(MortAS )  / (1 + Math.exp(MortAS))
       MortAS = Fmt(100 * MortAS ) +"%"
-
     */
-    console.log(resultValue)
-    let percent = resultValue
-    percent =- 64.599+((Math.log(resultValue+71.0599))*13.2322)
+    
+    let percent = soma
+    percent =- 64.599+((Math.log(soma+71.0599))*13.2322)
     percent = Math.exp(percent) / (1 + Math.exp(percent))
     percent = 100 * percent
+    
+    setResultValue(soma)
     setPercentValue(percent)
-
   }
 
   return (
@@ -164,19 +167,19 @@ const Home = () => {
                       <>
                         <Row gutter={16} style={{textAlign: "center"}}>
                           <Col span={24}>
-                            <Card>
-                              <Statistic
-                                title="SAPS 3 Score"
-                                value={resultValue}
-                                precision={0}
-                                valueStyle={{ color: '#3f8600' }}
-                              />
+                            <Card style={{border: "none"}}>
                               <Statistic
                                 title="Taxa de Mortalidade"
                                 value={percentValue}
                                 precision={2}
-                                valueStyle={{ color: '#3f8600' }}
+                                valueStyle={{ color: '#1890FF', fontSize: '40px' }}
                                 suffix="%"
+                              />
+                              <Statistic
+                                title="SAPS 3 Score"
+                                value={resultValue}
+                                precision={0}
+                                valueStyle={{ color: '#1890FF' }}
                               />
                             </Card>
                           </Col>
@@ -187,24 +190,49 @@ const Home = () => {
                 <Form.Item>
                   <div className={styles.stepsAction}>
                       {current < steps.length - 2 && (
-                        <Button type="primary" onClick={() => {
-                          next()
-                        }}>
+                        <Button 
+                          type="primary" 
+                          shape="round"
+                          onClick={() => {
+                            next()
+                          }}
+                        >
                           Avançar
                         </Button>
                       )}
                       {current === steps.length - 2 && (
-                        <Button type="primary" htmlType="submit" onClick={() => {
-                            message.success('SAPS 3 finalizado!')
-                            next()
+                        <Button 
+                          type="primary" 
+                          htmlType="submit" 
+                          shape="round"
+                          onClick={() => {
                             onFormSaps(form.getFieldsValue(true))
-                          }}>
+                            next()
+                            message.success('SAPS 3 finalizado!')
+                            }}
+                        >
                           Finalizar
                         </Button>
                       )}
                       {current > 0 && (
-                        <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
+                        <Button
+                          style={{ margin: '0 8px' }} 
+                          onClick={() => prev()}
+                          shape="round"
+                        >
                           Voltar
+                        </Button>
+                      )}
+                      {current === steps.length - 1 && (
+                        <Button 
+                          type="primary" 
+                          onClick={() => {
+                            message.warning('SAPS 3 reiniciado!')
+                            restart()
+                          }}
+                          shape="round"
+                        >
+                          Reiniciar
                         </Button>
                       )}
                   </div>
