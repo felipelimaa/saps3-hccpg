@@ -14,7 +14,7 @@ import {
   message
 } from 'antd';
 
-import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { LeftCircleOutlined, RightCircleOutlined, CheckCircleOutlined, UndoOutlined } from '@ant-design/icons';
 
 import styles from './styles/index.module.css';
 
@@ -187,8 +187,18 @@ const Home = () => {
                       </>
                     )}
                 </div>
-                <Form.Item>
+                <Form.Item className="space-align-block">
                   <div className={styles.stepsAction}>
+                      {current > 0 && (
+                        <Button
+                          style={{ margin: '0 8px' }} 
+                          onClick={() => prev()}
+                          shape="round"
+                          icon={<LeftCircleOutlined />}
+                        >
+                          Voltar
+                        </Button>
+                      )}
                       {current < steps.length - 2 && (
                         <Button 
                           type="primary" 
@@ -196,6 +206,7 @@ const Home = () => {
                           onClick={() => {
                             next()
                           }}
+                          icon={<RightCircleOutlined />}
                         >
                           Avançar
                         </Button>
@@ -210,27 +221,21 @@ const Home = () => {
                             next()
                             message.success('SAPS 3 finalizado!')
                             }}
+                          icon={<CheckCircleOutlined />}
                         >
                           Finalizar
-                        </Button>
-                      )}
-                      {current > 0 && (
-                        <Button
-                          style={{ margin: '0 8px' }} 
-                          onClick={() => prev()}
-                          shape="round"
-                        >
-                          Voltar
                         </Button>
                       )}
                       {current === steps.length - 1 && (
                         <Button 
                           type="primary" 
                           onClick={() => {
-                            message.warning('SAPS 3 reiniciado!')
+                            message.success('SAPS 3 reiniciado!')
                             restart()
                           }}
                           shape="round"
+                          icon={<UndoOutlined />}
+                          style={{background: '#FAAD14', border: 'none'}}
                         >
                           Reiniciar
                         </Button>
